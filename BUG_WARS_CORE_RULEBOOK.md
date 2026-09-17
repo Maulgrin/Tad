@@ -2,7 +2,7 @@
 ## Core Rulebook
 ### A Year Zero Engine Military Science-Fiction Roleplaying Game
 
-**Playtest Edition 0.2 — aligned with the approved BWzye v0.11.8 MVP**
+**Playtest Edition 0.2 — aligned with the approved BWzye v0.12.3 MVP**
 
 This edition uses the project design/build specifications, approved phase defaults and Phase 11 reference content as its baseline. Provisional values remain playtest values. Text marked **Optional tabletop proposal** is an unapproved extension from the original draft; agree on it with the GM before using it. A numerical rule appearing here does not by itself make it part of the approved MVP.
 
@@ -708,7 +708,7 @@ Improve a Zone cover rating by one level.
 
 **Optional tabletop proposal — requires GM agreement; not an approved MVP default.**
 
-Equipment uses abstract **Bulk**. Carry = 4 + Strength is approved, and Carried Bulk is maintained manually. The penalties below are optional proposals; the MVP does not calculate or enforce them.
+Equipment uses abstract **Bulk**. Carry = 4 + Strength is approved. **Carried Bulk** automatically totals weapons on the Combat tab, armor in Equipment & Specialties, and field gear Bulk multiplied by quantity. Each listed weapon and armor item counts once, whether equipped or not; unequipped equipment is still carried. Remove an item from the loadout when it is no longer carried, or reduce a gear stack's quantity (zero contributes no Bulk). Specialties, skills and archetypes add no Bulk. The total refreshes when the loadout changes and when existing characters are loaded. Generic CoreRPG Inventory weights are separate and are not converted into BW Bulk; use BW gear records for physical equipment. The penalties below are optional proposals; the MVP does not calculate or enforce them.
 
 A character can carry Bulk up to their **Carry** value without penalty.
 
@@ -785,6 +785,8 @@ Ties are broken by:
 2. player choice.
 
 The GM settles any remaining NPC tie. In Fantasy Grounds, **Roll Initiative** in the lower-right corner of a PC's Combat tab or NPC's BW Combat tab rolls Agility + Recon publicly, shows each die and the success total, and updates that actor's existing tracker entry. The tracker orders higher successes first, then larger rolled Agility dice; remaining ties still require player choice or GM adjudication. If the actor is not on the tracker, the chat result can be entered after adding it. Recon 0 rolls only Agility. NPCs, including squads and Hordes, use their stored Agility/Recon; missing values use the existing NPC defaults of Agility 2 (d8) and untrained Recon. The normal Recon Suppression penalty applies. Initiative is a separate roll with no Push or Apply step and does not replace a pending attack result. Keeping that order for the encounter is a GM convention.
+
+The host Combat Tracker's Initiative menu uses the same public Agility + Recon rolls for **All**, **PCs**, or **NPCs**. The NPC option includes Individuals, Squads and Hordes. Each actor rolls independently, including NPCs with matching names; the generic CoreRPG d20/group initiative option does not apply to these BW rolls.
 
 ## 7.2 Actions
 
@@ -1624,6 +1626,14 @@ At each round start, a surviving Squad below 25% checks its **Morale die**, requ
 Squads use the standard Suppression states and combat penalties in §10. Their Resolve tests use the **Morale die** instead of Empathy. At 5+ Suppression, resolve Panic through that procedure; this is distinct from the below-25% Strength Morale check.
 
 Rally can remove Squad Suppression. Advance and failed-check consequences remain GM-adjudicated; a successful Rally is not the only way to attempt an Advance check.
+
+## 13.6 Player Squad Control
+
+On the host Combat Tracker, right-click a Squad and choose **Assign Control → PC name (username)**. Only PCs with a player owner appear; long lists are grouped into submenus. The assignment belongs to that player, independently of their active PC, and persists across sessions. The menu shows the current controller. Selecting another PC transfers control; **Remove Player Control** revokes it. Assignment makes the Squad visible in the client tracker.
+
+The assigned player can double-click the Squad's tracker name or right-click and choose **Open Squad Sheet**. Use **Attack → optional Push → Apply Last Result**, **Finish Manually**, **Morale Check**, and **Roll Initiative**. The Squad's targeting reticle and Clear Targets controls manage its own targets. Its target summary is visible to its controller. All players can see active public effects on any tracker entry marked **Friendly**, including PCs, Individuals, Squads and Hordes. A Squad's controller also retains public effect visibility regardless of its faction. GM-only effects remain hidden, and effects visibility grants no editing or targeting permissions. The host performs requested rolls and applies results; assigned Squad attack, Push, Morale and initiative rolls are public.
+
+The linked map token also belongs to the assigned player, subject to the GM's normal movement locks. The GM retains control of statistics, modifiers, extra-success choices and consequences. Assignment grants action control rather than editing ownership of the NPC or its source template. The player does not need to unlock the sheet. Revoking control closes the former controller's open Squad sheet, removes token control and rejects further requests. Dice already accepted by the host can finish; the GM or a new controller can finish an outstanding attack review. Ordinary public tracker information remains visible after control is removed.
 
 # 14. The Bugs
 
