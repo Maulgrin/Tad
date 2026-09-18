@@ -2,7 +2,7 @@
 ## Core Rulebook
 ### A Year Zero Engine Military Science-Fiction Roleplaying Game
 
-**Playtest Edition 0.2 — aligned with the approved BWzye v0.12.3 MVP**
+**Playtest Edition 0.2 — aligned with the approved BWzye v0.12.8 MVP**
 
 This edition uses the project design/build specifications, approved phase defaults and Phase 11 reference content as its baseline. Provisional values remain playtest values. Text marked **Optional tabletop proposal** is an unapproved extension from the original draft; agree on it with the GM before using it. A numerical rule appearing here does not by itself make it part of the approved MVP.
 
@@ -200,6 +200,8 @@ An eligible failed or disappointing test may be **Pushed once**.
 5. If this attack requires an Ammo Check, it owes a second check after application, provided ammunition remains.
 
 A roll with no eligible dice cannot be pushed. Resolve/Panic, independent Squad Morale and injury treatment rolls cannot be pushed in this MVP. Stress is recorded separately; additional Stress effects have not been specified.
+
+The Combat Tracker displays the current amount as a public **STRESS: N** effect, including zero. It follows Stress changes, including Push, and is only a visual reminder; the effect itself applies no penalty.
 
 For attacks, Rally and commands, finish **Roll → optional Push → Apply Last Result** before starting another test. An ordinary Single attack requires no Ammo Check even after Push; Fire at Will can change that exception.
 
@@ -711,6 +713,8 @@ Improve a Zone cover rating by one level.
 Equipment uses abstract **Bulk**. Carry = 4 + Strength is approved. **Carried Bulk** automatically totals weapons on the Combat tab, armor in Equipment & Specialties, and field gear Bulk multiplied by quantity. Each listed weapon and armor item counts once, whether equipped or not; unequipped equipment is still carried. Remove an item from the loadout when it is no longer carried, or reduce a gear stack's quantity (zero contributes no Bulk). Specialties, skills and archetypes add no Bulk. The total refreshes when the loadout changes and when existing characters are loaded. Generic CoreRPG Inventory weights are separate and are not converted into BW Bulk; use BW gear records for physical equipment. The penalties below are optional proposals; the MVP does not calculate or enforce them.
 
 A character can carry Bulk up to their **Carry** value without penalty.
+
+The Combat Tracker automatically displays a public **ENCUMBERED** effect while Carried Bulk is greater than Carry Limit, and removes it at or below the limit. This effect is only a visual reminder and applies none of the optional penalties below. These automatic status effects are visible to players on Friendly entries under the normal effect-visibility rules.
 
 ### Encumbered
 
@@ -1474,7 +1478,7 @@ A Horde uses:
 
 These numbers are descriptive.
 
-**Fantasy Grounds group sizing:** Horde and Squad tracker Size/Space equals current Strength divided by two, preserving fractions (Strength 7 gives Size 3.5; Strength 1 gives Size 0.5). At zero Strength, Size is 1. This applies on tracker import and updates with damage, recovery and manual Strength edits. With a map grid and token auto-scaling enabled, the linked token follows the Size change. The GM's grid/scaling settings remain in force; Fantasy Grounds can round the occupied footprint independently of the stored Size. The host receives "[Name] is down." once when a living group reaches zero. Reopening or reloading does not repeat it; recovery permits a new down transition.
+**Fantasy Grounds NPC sizing:** When added to the tracker, Individuals, Elites and Monsters start with Space equal to half their current Health. Fresh deployments start at full Health, so Health 5 gives Space 2.5. Hordes and Squads both use Strength pools and start with half their current group Strength. This initializes before native map placement, preserves fractions, and uses Space 1 when the relevant pool is zero. Later Health changes do not automatically resize Individuals, Elites or Monsters. **Options → Combat → Squad/Horde tokens resize with Strength** defaults to **No**, preserving the current Size as Strength changes, including at zero. With **Yes**, existing groups immediately resize to current Strength/2, then resize with damage, recovery and manual Strength edits; zero Strength uses Size 1. Switching back to No keeps the current size and allows GM Size edits to persist. With a map grid and native token auto-scaling enabled, the linked token follows Size changes. The GM's grid/scaling settings remain in force; Fantasy Grounds can round the occupied footprint independently of the stored Size. Regardless of this option, the host receives "[Name] is down." once when a living group reaches zero. Reopening or reloading does not repeat it; recovery permits a new down transition.
 
 The host can edit every numeric/text field in the Horde/Squad tracker panel even when the original NPC record is locked. Tracker edits affect that instance. Calculated fields (such as Attack Bonus, State and Morale Due) remain subject to normal rules recalculation; editing them does not create a permanent override. Source-sheet locks and client restrictions still apply.
 
@@ -2688,6 +2692,8 @@ Before public or commercial distribution:
 ---
 
 # Appendix D: Edition 0.2 Accuracy Baseline
+
+Fantasy Grounds Manual Roll cancellation releases the unfinished test. Cancelling a Push preserves the previous completed result and its Push availability, and refunds the Stress added by that cancelled Push. An attack already awaiting Apply remains available. Use `/bwcancel` to abandon a test interrupted by a reload: on the host this acts on the current Combat Tracker turn; on a player client it acts on the active character. This does not cancel committed damage or Ammo jobs. For tests left unfinished by builds before v0.12.6, the command conservatively keeps existing Stress and Push availability; the GM should check those values. `/bwresume` continues to resume combat jobs and points an active actor with an unfinished test to `/bwcancel`.
 
 Reviewed against the local [design specification](BW_YZE_DESIGN_SPEC.md), [build specification](BW_FG_BUILD_SPEC.md), approved phase decisions, production managers in `BWyze/scripts`, and [Phase 11 reference content](reference-module/content.json).
 
